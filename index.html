@@ -564,10 +564,10 @@ function rearHTML(c){
   const st=isWish(c)?[0,"Wishlist"]:STATUS.find(s=>s[0]===stOf(c)),cs=isWish(c)?null:CONS.find(s=>s[0]===c.conservacao),p=palette(c);
   const fmt=d=>{if(!d)return "—";const [y,m,dd]=d.split("-");return `${dd}/${m}/${y}`};
   return `<div class="rear-face"><span class="slot"></span>
-    <div class="rear-h"><b>${esc(c.nome||"Sem nome")}</b><span>${idOf(c)}</span></div>
+    <div class="rear-h"><b>${esc(c.nome||"Sem nome")}</b></div>
     <dl><dt>Marca</dt><dd>${esc(c.marca||"—")}</dd><dt>Série</dt><dd>${esc(c.serie||"—")}</dd><dt>Ano</dt><dd>${esc(c.ano||"—")}</dd>
       <dt>Cor</dt><dd><span class="dot" style="--c:${p.c}"></span>${esc(c.cor||nearestName(baseHex(c)))}</dd><dt>Tipo</dt><dd>${esc(c.tipo||"—")}</dd>
-      <dt>Status</dt><dd>${st[1]}</dd><dt>Estado</dt><dd>${cs?cs[1]:"—"}</dd><dt>${isWish(c)?"Na wishlist desde":"Incluído em"}</dt><dd>${fmt(c.desde)}</dd></dl>
+      <dt>Status</dt><dd>${st?st[1]:"—"}</dd><dt>Estado</dt><dd>${cs?cs[1]:"—"}</dd><dt>${isWish(c)?"Na wishlist desde":"Incluído em"}</dt><dd>${fmt(c.desde)}</dd></dl>
     <div class="rear-f">${barcode(idOf(c))}<small>Coleção Neon<br>${idOf(c)}</small></div></div>`;
 }
 
